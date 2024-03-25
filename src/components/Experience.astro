@@ -1,30 +1,36 @@
 ---
-import ExperienceItem from "./ExperienceItem.astro"
+import ExperienceItem from "./ExperienceItem.astro";
 const EXPERIENCIE = [
-  {
-    date: "Actualmente...",
-    title: "Creador de Contenido",
-    company: "Twitch",
-    description:
-      "Divulgo sobre programación y desarrollo web en diferentes plataformas. Galardonado como mejor creador de contenido de habla no-inglesa en 2022 y mejor comunidad en 2023 por GitHub.",
-    link: "https://twitch.tv/midudev",
-  },
-  {
-    date: "Septiembre 2022",
-    title: "Principal Frontend Engineer",
-    company: "Adevinta Spain",
-    description:
-      "Responsable de la plataforma, componentes y utilidades para la creación y desarrollo de aplicaciones web. Mejora de un 30% en la entrega de software. Implantación de medidas de integración continua y despliegue con A/B testing en más de 15 equipos.",
-  },
-]
+    {
+        date: "En 2022 -> Jun 2023 ",
+        title: "Consultor SAP ABAP",
+        company: "Accenture",
+        description:
+            "Soporte a aplicativos del cliente, monitoreo en tiempo real de jobs y tareas del sistema. Corrección, mantenimiento y mejora contínua a requerimientos de cliente, así también desarrollo y estimación de tareas.",
+    },
+    {
+        date: "Jul 2021 -> Dic 2021",
+        title: "Mobile Developer",
+        company: "Efisys",
+        description:
+            "Encargado de análisis, estimación y desarrollo de requerimientos de cliente, correcciónes y mejoras a aplicaciones móviles, encargado del despliegue y monitoreo de funcionalidades sobre aplicativos, así también desarrollo de Web Services y manejo de Bases de datos..",
+    },
+    {
+        date: "Feb 2018 -> Jun 2021 ",
+        title: "Frontend Developer",
+        company: "Kondosoft",
+        description:
+            "Parte del equipo de desarrollo, encargado de maquetación de UI y desarrollo de mejoras designadas. Responsable de la optimización del tiempo de respuesta y responsividad de la app Perfiletto.",
+    },
+];
 ---
 
 <ol class="relative mt-16">
-  {
-    EXPERIENCIE.map((experiencie) => (
-      <li class="">
-        <ExperienceItem {...experiencie} />
-      </li>
-    ))
-  }
+    {
+        EXPERIENCIE.map((experiencie) => (
+            <li class="">
+                <ExperienceItem {...experiencie} />
+            </li>
+        ))
+    }
 </ol>
