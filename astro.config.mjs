@@ -8,4 +8,5 @@ export default defineConfig({
   integrations: [tailwind(), robotsTxt()],
   //site: 'https://porfolio.dev/'
   site: 'https://robbfucu.github.io',
+  base: 'Portafolio'
 })
