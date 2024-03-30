@@ -2,10 +2,8 @@
 import SunIcon from "./icons/Sun.astro"
 import MoonIcon from "./icons/Moon.astro"
 import SystemIcon from "./icons/System.astro"
-
 const THEMES = ["Light", "Dark", "System"]
 ---
-
 <div class="relative ml-1 mr-1">
   <button
     id="theme-toggle-btn"
@@ -37,7 +35,6 @@ const THEMES = ["Light", "Dark", "System"]
     </ul>
   </div>
 </div>
-
 <style>
   #themes-menu.open {
     display: inline;
@@ -49,35 +46,29 @@ const THEMES = ["Light", "Dark", "System"]
       transform: scale(0.8);
       opacity: 0;
     }
-
     to {
       transform: scale(1);
       opacity: 1;
     }
   }
 </style>
-
 <script is:inline>
   let remove = null
   const matchMedia = window.matchMedia("(prefers-color-scheme: dark)")
   const themesMenu = document.getElementById("themes-menu")
-
   const getThemePreference = () => {
     if (typeof localStorage !== "undefined") {
       return localStorage.getItem("theme") ?? "system"
     }
-
     return window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
       : "light"
   }
-
   const updateIcon = (themePreference) => {
     document.querySelectorAll(".theme-toggle-icon").forEach((element) => {
       element.style.scale = element.id === themePreference ? "1" : "0"
     })
   }
-
   const updateTheme = () => {
     if (remove != null) {
       remove()
@@ -86,26 +77,20 @@ const THEMES = ["Light", "Dark", "System"]
     remove = () => {
       matchMedia.removeEventListener("change", updateTheme)
     }
-
     const themePreference = getThemePreference()
     const isDark =
       themePreference === "dark" ||
       (themePreference === "system" && matchMedia.matches)
-
     updateIcon(themePreference)
     document.documentElement.classList[isDark ? "add" : "remove"]("dark")
   }
-
   updateTheme()
-
   document.addEventListener("click", () => themesMenu.classList.remove("open"))
-
   document.getElementById("theme-toggle-btn").addEventListener("click", (e) => {
     e.stopPropagation()
     const isClosed = !themesMenu.classList.contains("open")
     themesMenu.classList[isClosed ? "add" : "remove"]("open")
   })
-
   document.querySelectorAll(".themes-menu-option").forEach((element) => {
     element.addEventListener("click", (e) => {
       localStorage.setItem("theme", e.target.innerText.toLowerCase().trim())

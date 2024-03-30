@@ -1,18 +1,14 @@
 ---
 import "@fontsource-variable/onest"
-
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 import { ViewTransitions } from "astro:transitions"
-
 interface Props {
   title: string
   description: string
 }
-
 const { description, title } = Astro.props
 ---
-
 <!doctype html>
 <html lang="es">
   <head>
@@ -24,7 +20,6 @@ const { description, title } = Astro.props
     <title>{title}</title>
     <ViewTransitions />
   </head>
-
   <body class="relative text-black dark:text-white">
     <div
       class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
@@ -52,25 +47,21 @@ const { description, title } = Astro.props
         min-height: 100vh;
         overscroll-behavior: none;
       }
-
       @media (prefers-reduced-motion: reduce) {
         html {
           scroll-behavior: auto;
         }
       }
-
       @media (prefers-color-scheme: dark) {
         body {
           color: rgba(255, 255, 255, 0.9);
         }
       }
-
       #header-nav {
         animation: blur linear both 0.5s;
         animation-timeline: scroll();
         animation-range: 0 500px;
       }
-
       @keyframes blur {
         to {
           backdrop-filter: blur(20px);
@@ -84,7 +75,6 @@ const { description, title } = Astro.props
           border-radius: 9999px;
         }
       }
-
       @media (prefers-color-scheme: dark) {
         @keyframes blur {
           from {
